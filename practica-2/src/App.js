@@ -3,17 +3,22 @@ import freeCodeCampLogo from './imagenes/freecodecamp-logo.png';
 import Contador from './componentes/Contador';
 import Boton from './componentes/Boton';
 import './hojas-estilos/Boton.css';
+import { useState } from 'react';
 
 function App() {
 
+  const [ numClicks, setNumClicks ] = useState(0);
+
   const  manejarClick = () => {
 
-    console.log('Click');
+    setNumClicks (numClicks + 1);
 
   }
 
   const reiniciarContador = () => {
-    console.log('reinciar');
+
+    setNumClicks(0);
+
   }
 
   return (
@@ -27,13 +32,10 @@ function App() {
         />
       </div>
 
-
-
       <div className='contendor-principal-contador'>
 
         <Contador
-        
-        clicks='5'
+        clicks={numClicks}
         
         />
         
